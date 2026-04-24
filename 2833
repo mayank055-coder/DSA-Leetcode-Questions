@@ -1,0 +1,4 @@
+https://leetcode.com/problems/furthest-point-from-origin/description/?envType=daily-question&envId=2026-04-24
+class Solution:
+    def furthestDistanceFromOrigin(self, moves: str) -> int:
+        return abs(sum((c=='R')-(c=='L') for c in moves))+moves.count('_')
