@@ -1,0 +1,5 @@
+https://leetcode.com/problems/maximum-number-of-jumps-to-reach-the-last-index/description/?envType=daily-question&envId=2026-05-10
+class Solution:
+    def maximumJumps(self, a: List[int], t: int) -> int:
+        return max((f:=cache(lambda i,n=len(a):i<n-1 and max((f(j) for j in range(i+1,n)
+            if abs(a[i]-a[j])<=t),default=-inf)+1))(0),-1)
