@@ -1,0 +1,12 @@
+https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/description/?envType=daily-question&envId=2026-05-12
+class Solution:
+    def minimumEffort(self, tasks: List[List[int]]) -> int:
+        tasks.sort(key=lambda x: x[1] - x[0], reverse=True)
+
+        def test(bal):
+            for cost,thresh in tasks:
+                if bal<thresh:
+                    return False
+                bal -= cost
+            return True
+        return bisect.bisect_left(range(10**9 + 1), True, key=test)
