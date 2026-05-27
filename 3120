@@ -12,3 +12,9 @@ class Solution:
         common = lower&upper
 
         return common.bit_count()
+
+2nd solution 
+
+class Solution:
+    def numberOfSpecialChars(self, word: str) -> int:
+        return sum(0<=word.rfind(c)<word.find(c.upper()) for c in ascii_lowercase)
